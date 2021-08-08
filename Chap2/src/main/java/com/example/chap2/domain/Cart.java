@@ -8,8 +8,7 @@ import org.springframework.data.annotation.Id;
 
 public class Cart {
 
-	@Id
-	private String id;
+	private @Id String id;
 	private List<CartItem> cartItems;
 
 	private Cart() {}
@@ -22,6 +21,7 @@ public class Cart {
 		this.id = id;
 		this.cartItems = cartItems;
 	}
+	// end::code[]
 
 	public String getId() {
 		return id;
@@ -45,7 +45,7 @@ public class Cart {
 			return true;
 		if (o == null || getClass() != o.getClass())
 			return false;
-		Cart cart = (Cart)o;
+		Cart cart = (Cart) o;
 		return Objects.equals(id, cart.id) && Objects.equals(cartItems, cart.cartItems);
 	}
 
@@ -56,9 +56,6 @@ public class Cart {
 
 	@Override
 	public String toString() {
-		return "Cart{" +
-			"id='" + id + '\'' +
-			", cartItems=" + cartItems +
-			'}';
+		return "Cart{" + "id='" + id + '\'' + ", cartItems=" + cartItems + '}';
 	}
 }

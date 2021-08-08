@@ -23,13 +23,13 @@ public class HomeController {
 	}
 
 	@GetMapping
-	public Mono<Rendering> home() {
-		return Mono.just(Rendering.view("home.html")
-			.modelAttribute("item",
-				this.itemRepository.findAll())
-			.modelAttribute("cart",
-				this.cartRepository.findById("My Cart")
-			.defaultIfEmpty(new Cart("My Cart"))
-		).build());
+	public Mono<Rendering> home() { // <1>
+		return Mono.just(Rendering.view("home.html") // <2>
+			.modelAttribute("items", //
+				this.itemRepository.findAll()) // <3>
+			.modelAttribute("cart", //
+				this.cartRepository.findById("My Cart") // <4>
+					.defaultIfEmpty(new Cart("My Cart")))
+			.build());
 	}
 }

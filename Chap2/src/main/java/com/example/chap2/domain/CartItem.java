@@ -2,7 +2,7 @@ package com.example.chap2.domain;
 
 import java.util.Objects;
 
-public class CartItem {
+class CartItem {
 
 	private Item item;
 	private int quantity;
